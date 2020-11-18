@@ -46,6 +46,7 @@ public class MainService {
 			
 			while ((line = reader.readLine()) != null) {
 				System.out.println(line);
+				System.out.println("the file has been read");
 			}
 		} catch (IOException e) {
 			System.err.format("IOException: %s%n", e);

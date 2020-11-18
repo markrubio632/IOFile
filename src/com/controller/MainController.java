@@ -24,10 +24,12 @@ public class MainController {
 		
 		if(userInput == 1) {
 			service.Writer();
+			sc.close();
 		}
 		else if(userInput == 2) {
 			try {
 				service.Reader();
+				sc.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
