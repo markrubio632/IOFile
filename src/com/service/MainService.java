@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 
 public class MainService {
 	
-	Path path = Paths.get("C:\\JUMPlus\\IOFile\\test.txt");
+	Path path = Paths.get("test.txt");
 
 	File textFile = new File(path.toString());
 
@@ -33,9 +33,6 @@ public class MainService {
 				System.err.format("IOException: %s%n", e);
 			}
 		}
-		else {
-			System.out.println("File exists");
-		}
 	}
 
 	public void Reader() throws IOException {
@@ -46,7 +43,6 @@ public class MainService {
 			
 			while ((line = reader.readLine()) != null) {
 				System.out.println(line);
-				System.out.println("the file has been read");
 			}
 		} catch (IOException e) {
 			System.err.format("IOException: %s%n", e);
