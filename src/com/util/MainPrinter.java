@@ -7,5 +7,9 @@ public class MainPrinter {
 				+ "1. Yes\n"
 				+ "2. No");
 	}
+	
+	public void QuestionPrompt() {
+		System.out.println("Would you like to add in a question?");
+	}
 
 }

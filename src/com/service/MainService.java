@@ -17,15 +17,13 @@ public class MainService {
 
 	Charset charset = Charset.forName("US-ASCII");
 
-	public void Writer() {
-
-		String s = "This is just a test for the Writer";
+	public void Writer(String input) {
 
 		if (!textFile.exists()) {
 
 			try (BufferedWriter writer = Files.newBufferedWriter(path.toAbsolutePath(), charset)) {
 
-				writer.write(s, 0, s.length());
+				writer.write(input, 0, input.length());
 
 				System.out.println("the file is created");
 
