@@ -17,13 +17,15 @@ public class MainService {
 
 	Charset charset = Charset.forName("US-ASCII");
 
-	public void Writer(String input) {
+	public void FileCreator() {
+
+		String s = "This is just a test for the Writer";
 
 		if (!textFile.exists()) {
 
 			try (BufferedWriter writer = Files.newBufferedWriter(path.toAbsolutePath(), charset)) {
 
-				writer.write(input, 0, input.length());
+				writer.write(s, 0, s.length());
 
 				System.out.println("the file is created");
 
@@ -50,6 +52,24 @@ public class MainService {
 			System.err.format("IOException: %s%n", e);
 		}
 
+	}
+	
+	public void Writer(String input) {
+		
+		if (textFile.exists()) {
+
+			try (BufferedWriter writer = Files.newBufferedWriter(path.toAbsolutePath(), charset)) {
+
+				writer.write(input, 0, input.length());
+
+			} catch (IOException e) {
+				System.err.format("IOException: %s%n", e);
+			}
+		}
+		else {
+			System.out.println("Issue with writing to file");
+		}
+		
 	}
 
 

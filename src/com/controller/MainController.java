@@ -7,34 +7,49 @@ import com.service.MainService;
 import com.util.MainPrinter;
 
 public class MainController {
-	
+
 	MainService service = new MainService();
 	MainPrinter print = new MainPrinter();
-	
-	
+
 	public void ProjectStarter() {
-		
-		int userInput;
-		
+
 		print.MainMenu();
-		
+
 		Scanner sc = new Scanner(System.in);
-		
-		userInput = sc.nextInt();
-		
-		if(userInput == 1) {
-			service.Writer();
-			sc.close();
-		}
-		else if(userInput == 2) {
+
+		int userInput = sc.nextInt();
+
+		if (userInput == 1) {
+			service.FileCreator();
+		} else if (userInput == 2) {
 			try {
 				service.Reader();
-				sc.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
+
+	}
+
+	public void QuestionInsert() {
 		
+		String input;
+		
+		print.QuestionPrompt();
+
+		Scanner qc = new Scanner(System.in);
+
+		int userInput = qc.nextInt();
+		qc.nextLine();
+		
+		if(userInput==1) {
+			input = qc.nextLine();
+			service.Writer(input);
+		}
+		else if(userInput ==2) {
+			//move on
+		}
+
 	}
 
 }
